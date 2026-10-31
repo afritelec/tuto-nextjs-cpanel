@@ -1,5 +1,6 @@
 ---
 deployment:
   tasks:
-    - ulimit -v unlimited; export TOKIO_WORKER_THREADS=2 RAYON_NUM_THREADS=2 UV_THREADPOOL_SIZE=2; source /home/odoip/nodevenv/repositories/tuto-nextjs-cpanel/22/bin/activate && npm install --include=dev && npm run build
+    - pkill -f "^Passenger NodeApp.*tuto-nextjs-cpanel" || true
+    - export TOKIO_WORKER_THREADS=2 RAYON_NUM_THREADS=2 UV_THREADPOOL_SIZE=2; source /home/odoip/nodevenv/repositories/tuto-nextjs-cpanel/22/bin/activate && npm install --include=dev && npm run build
     - touch tmp/restart.txt
