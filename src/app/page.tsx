@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { listTasks } from "@/lib/db";
 import { addTask, deleteTask, editTask, toggleTask } from "./actions";
@@ -60,4 +59,3 @@ export default async function Home({ searchParams }: Props) {
     </main>
   );
 }
-L git add .
