@@ -1,6 +1,4 @@
 ---
 deployment:
   tasks:
-    - pkill -f "^Passenger NodeApp.*tuto-nextjs-cpanel" || true
-    - export TOKIO_WORKER_THREADS=2 RAYON_NUM_THREADS=2 UV_THREADPOOL_SIZE=2 NODE_OPTIONS=--v8-pool-size=2; source /home/odoip/nodevenv/repositories/tuto-nextjs-cpanel/22/bin/activate && npm install --include=dev && npm run build
-    - touch tmp/restart.txt
+    - export APP=repositories/tuto-nextjs-cpanel TOKIO_WORKER_THREADS=2 RAYON_NUM_THREADS=2 UV_THREADPOOL_SIZE=2 NODE_OPTIONS=--v8-pool-size=2; cloudlinux-selector stop --json --interpreter nodejs --app-root $APP >/dev/null; source /home/odoip/nodevenv/$APP/22/bin/activate && npm install --include=dev && npm run build; R=$?; unset NODE_OPTIONS; cloudlinux-selector start --json --interpreter nodejs --app-root $APP >/dev/null; exit $R
