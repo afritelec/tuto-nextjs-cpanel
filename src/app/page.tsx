@@ -15,7 +15,7 @@ export default async function Home({ searchParams }: Props) {
   return (
     <main>
       <h1>Mes tâches</h1>
-      <p className="sub">Next.js et MySQL, déployés sur cPanel</p>
+      <p className="sub">Mise à jour déployée avec Git et cPanel</p>
 
       <form action={addTask} className="add">
         <input name="title" placeholder="Nouvelle tâche" maxLength={200} required />
@@ -60,3 +60,4 @@ export default async function Home({ searchParams }: Props) {
     </main>
   );
 }
+L git add .
